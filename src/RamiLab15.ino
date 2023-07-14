@@ -6,9 +6,8 @@ SYSTEM_THREAD(ENABLED);
 
 OledWingAdafruit display;
 
-#define WD D4
+#define WD D5
 
-volatile int countdown = 5;
 
 void setup()
 {
@@ -45,14 +44,7 @@ void loop()
   display.loop();
   if (digitalRead(WD) == LOW)
   {
-    delay(1000);
     resetDisplay();
-    display.display();
-    countdown--;
-    resetDisplay();
-    display.println(countdown);
-    display.display();
-    Serial.println(countdown);
   }
   else
   {
